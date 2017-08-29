@@ -1,0 +1,436 @@
+Bootstrap Doc: https://getbootstrap.com/docs/3.3/css/
+
+Downlooad locally:
+https://getbootstrap.com/docs/3.3/getting-started/
+
+
+
+
+
+The HTML document must be linked to a local or CDN hosted Bootstrap library.
+The Bootstrap container and container-fluid classes are required for every section of a Bootstrap site.
+The Bootstrap navbar class with navbar-default or navbar-inversestyles the appearance of the navigation bar.
+The navigation bar can be fixed to the top or bottom of a webpage with the navbar-fixed-top or navbar-fixed-bottom class.
+Elements in the navigation bar can be shifted to the left or right with the navbar-left and navbar-right classes.
+The jumbotron class makes the content within its container appear more prominently.
+The Bootstrap grid system requires a div of class row for each row in the grid.
+The Bootstrap grid system requires content elements that take up anywhere from one to twelve columns.
+The Bootstrap grid system can be used as a responsive layout framework by using a few of the following prefixes for each content element: xs, sm, md, or lg.
+Bootstrap provides built-in button and button-sizing classes.
+Built-in Bootstrap styles can be overwritten by setting property values with the same selectors in a local CSS document.
+
+
+ It should be linked before any other local CSS documents; we will discuss why in Exercise 10.
+
+<link href="resources/bootstrap.css" type="text/css" rel="stylesheet" />
+<link href="css/style.css" type="text/css" rel="stylesheet" />
+
+content delivery network (CDN).
+embedded as link:
+he Bootstrap CDN URL is linked using the same format as a local file:
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="style.css"/>
+
+The integrity and crossorigin properties in the example above ensure that the file has not been replaced with malware.
+
+The next logical question is, why use one over the other? Each method has its benefits and shortfalls.
+
+Hosting bootstrap.css locally ensures the website will have access to it when downloaded by the browser. This is because the HTML, CSS, and Bootstrap files are all coming from the same location.
+The Bootstrap CDN is quicker to set up, maintain, and is often faster for a user to load. Users who frequently visit sites that use Bootstrap, will usually have a copy of Bootstrap stored on their computer (this is called caching). When a library is cached, the user's browser won't have to request that file at all; it will already be downloaded, which makes loading the web page even faster.
+It is important to understand the pros and cons of each linking strategy. For now, we recommend linking to the Bootstrap CDN.
+
+
+container - sets a responsive, fixed-width container. For each of four viewport ranges, the container width will remain the same until it is narrowed or widened to the next range. The ranges include:
+
+less than 768px — extra small
+
+768-991px — small
+
+992-1199px — medium
+
+greater than 1199px — large
+container-fluid - sets a responsive container that fills the viewport, regardless of the viewport's width.
+
+The navbar and navbar-default classes provide the styling necessary to turn a container into a navigation bar.
+
+<nav class="navbar navbar-default">
+  <div class="container">
+  </div>
+</nav>
+In the example above, a container element is wrapped in a nav element with classes navbar and navbar-default. The navbar class applies specific navigation bar styles to everything within its container. The navbar-defaultclass contains a color scheme for the navigation bar.
+
+There are two pieces of content we can add to a Bootstrap navigation bar: a header (navbar-header) and navigation links (nav and navbar-nav). Each of these Bootstrap classes must be wrapped inside of the container div, which is inside of the navbar navbar-x div.
+
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Project name</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+In the example above, the navbar wraps the container, which wraps the navbar-header and nav navbar-nav. The organization of the elements and classes provides the position, size, color-scheme, and format for all of the navigation bar's content. The navigation links inside of the nav navbar-navdiv must always be anchor tags. These anchor tags are usually placed inside of an unordered list.
+EXEMPLE DE NAV
+===============
+<!-- Create the navigation bar below -->
+	<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+    <!-- Add the navbar-header below -->
+			<div class="navbar-header">
+        <a class="navbar-brand" href="#">Spike Spiegel</a>
+      </div>
+    <!-- Add the nav navbar-nav below-->
+    	<ul class="nav navbar-nav">
+        <li><a href="#">Biography</a></li>
+        <li><a href="#">Publications</a></li>
+      </ul>
+    </div>
+  </nav>
+
+When creating a responsive website with Bootstrap, supporting content is often positioned with Bootstrap's built-in grid system. The grid system is useful for spacing content left to right across the viewport.
+
+All content in a Bootstrap grid should be wrapped in a container or container-fluid div. Although columns can be added to containers without these classes, they provide the styling necessary to support the grid system.
+
+The direct children of a grid container div should only be class row divs. Each of these Bootstrap row divs has 12 columns. The content of a row, usually more divs, can fill between one (col-md-1) and twelve (col-md-12) columns.
+
+<div class="container">
+  <!-- Start of the first row -->
+  <div class="row">
+    <div class="col-md-6">
+      <p> Row 1, Cols 1-6 </p>
+    </div>
+    <div class="col-md-6">
+      <p> Row 1, Cols 7-12 </p>
+    </div>
+  </div>
+  <!-- Start of the second row -->
+  <div class="row">
+    <div class="col-md-4">
+      <p> Row 2, Cols 1-4 </p>
+    </div>
+    <div class="col-md-4">
+      <p> Row 2, Cols 5-8 </p>
+    </div>
+    <div class="col-md-4">
+      <p> Row 2, Cols 9-12 </p>
+    </div>
+  </div>
+</div>
+In the example above, the container div has two rows. The first div in each row will start on the left side of the viewport. In the first row, each of the two column divs will take up half of the row. In the second row, each of the three column divs will take up one-third of the row. The grid will look something like Figure 1 in this image.
+
+What would happen if we changed the code above so each of the three divs in the second row were five columns wide? The three divs would fill more than twelve columns.
+
+<div class="container">
+  <!-- Start of the first row -->
+  <div class="row">
+    <div class="col-md-6">
+      <p> Row 1, Cols 1-6 </p>
+    </div>
+    <div class="col-md-6">
+      <p> Row 1, Cols 7-12 </p>
+    </div>
+  </div>
+  <!-- Start of the second row -->
+  <div class="row">
+    <div class="col-md-5">
+      <p> Row 2, Cols 1-5 </p>
+    </div>
+    <div class="col-md-5">
+      <p> Row 2, Cols 6-10 </p>
+    </div>
+    <div class="col-md-5">
+      <p> Row 2, Cols 1-5 </p>
+    </div>
+  </div>
+</div>
+In the example above, the second row contains three divs, each five columns wide. The first two divs will fill five columns each. Because the third div would fill columns 11-15, it wraps and is displayed under the first two divs. The third div is still part of row two. The height of row two will increase to fit the wrapped div. If a third row were added to the container, the content would be displayed beneath this wrapped element. The grid will look something like Figure 2 in this image.
+Lien:
+https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-7/diagram-bootstrap-wrap.svg
+
+
+col-xs-x - used when the width of the viewport is less than 768 pixels. This setting is for mobile phone display.
+col-sm-x - used when the width of the viewport is between 768 pixels and 991 pixels. This setting is for tablet display.
+col-md-x - used when the width of the viewport is between 992 pixels and 1199 pixels. This setting is for laptop display.
+col-lg-x - used when the width of the viewport is greater than 1199 pixels. This setting is for larger screen displays.
+
+
+If a Bootstrap column div has two of the above classes, Bootstrap will query the width of the viewport and display the content based on the number of columns assigned for the given browser width range.
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">Row 1, Column 1</div>
+    <div class="col-xs-12 col-md-6">Row 1, Column 2</div>
+  </div>
+</div>
+In the example above, if the user were to view this HTML on a mobile device, "Row 1, Column 1" would be displayed above "Row 1, Column 2". If they were viewing this on a laptop, "Row 1, Column 1" and "Row 1, Column 2" would be displayed on the same line ( Figure ). The col-xs-12 class sets these divs to fill the width of the Bootstrap container at small screen widths. The col-md-6class sets each div to fill half of its container when the width is above 992 pixels.
+
+If a div's width is not defined for a specific range, the browser uses the nearest defined lower range.
+
+If a user were to view the example above on a 900 pixel wide device (the smsize), the browser will display the content using the widths from the xs class. The content would be displayed on separate lines. If the window were larger than 992 pixels, however, the text would be displayed on the same line.
+
+
+Buttons
+Bootstrap comes with a set of classes that are designed to make elements appear as buttons. These classes consist of btn- followed by a word that defines the class' color scheme.
+
+The available button classes include: btn-default, btn-primary, btn-secondary, btn-success, btn-info, btn-warning, btn-danger, and btn-link.
+
+The classes above create solid-colored buttons. Bootstrap also provides btn-outline-x, where x can be any of the button color scheme options above. The difference is that the background color of btn-outline-x buttons is white, while the outline and text matches the color scheme.
+
+These classes are most often used to set the style for anchor tags.
+
+<a class="btn btn-primary" href="www.codecademy.com">Home</a>
+In the example above, an anchor tag is set to classes btnand btn-primary. The btn class is needed to add basic button styling. The btn-primary class sets the color scheme. This anchor tag will appear as a button with white text, a blue background, and a blue border.
+
+exemple code avec boutton et container et navbar
+
+=================================
+
+
+
+<!DOCTYPE>
+
+<html>
+
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="styles/main.css"/>
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:100,700' rel='stylesheet' type='text/css'>
+
+  <title>Portfolio</title>
+
+</head>
+
+
+
+<body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+
+        <a class="navbar-brand" href="#">Spike Speigel</a>
+
+      </div>
+
+      <ul class="nav navbar-nav collapse navbar-collapse">
+
+        <li><a href="#">Biography</a></li>
+
+        <li><a href="#">Publications</a></li>
+
+      </ul>
+
+    </div>
+
+  </nav>
+
+
+
+  <div class="jumbotron jumbotron-fluid">
+
+    <div class="container-fluid">
+
+      <h1>Spike Spiegel</h1>
+
+      <p>Freelance Photographer</p>
+
+      <a href="#gallery" class="btn btn-primary btn-lg">See More</a>
+
+    </div>
+
+  </div>
+
+
+
+
+
+    <div id="about" class="container">
+
+      <div class="row">
+
+       <h2 class="col-xs-12">About Me</h2>
+
+       <div class="col-xs-12 col-md-6">
+
+         <p class="left-col">I'M SELF TAUGHT WITH A PASSION FOR TRAVEL AND DESIGN</p>
+
+       </div>
+
+       <div class="col-xs-12 col-md-6">
+
+          <p class="right-col">I was born in Cape Town, South Africa and moved around a lot as a kid. To keep me distracted, my parents gave me a camera. Since then, I look at the world through a lens. I've visited over 30 countries and taken almost one quarter of a million photographs, and I feel like I'm just getting started. Join me on my journey!</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+
+    <div class="container">
+
+      <h2 class="col-xs-12">Gallery</h2>
+
+      <div class="row">
+
+        <img src="
+
+https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-7/gallery-01.jpg" class="col-lg-4 col-md-6 col-xs-12">
+
+        <img src="
+
+https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-7/gallery-02.jpg" class="col-lg-4 col-md-6 col-xs-12">
+
+        <img src="
+
+https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-7/gallery-03.jpg" class="col-lg-4 col-md-6 col-xs-12">
+
+        <img src="
+
+https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-7/gallery-04.jpg" class="col-lg-4 col-md-6 col-xs-12">
+
+        <img src="
+
+https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-7/gallery-05.jpg" class="col-lg-4 col-md-6 col-xs-12">
+
+        <img src="
+
+https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-7/gallery-06.jpg" class="col-lg-4 col-md-6 col-xs-12">
+
+        <img src="
+
+https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-7/gallery-07.jpg" class="col-lg-4 col-md-6 col-xs-12">
+
+        <img src="
+
+https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-7/gallery-08.jpg" class="col-lg-4 col-md-6 col-xs-12">
+
+        <img src="
+
+https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-7/gallery-09.jpg" class="col-lg-4 col-md-6 col-xs-12">
+
+      </div>
+
+    </div>
+
+
+
+  <div id="contact" class="container-fluid">
+
+    <div class="row">
+
+      <h2 class="col-xs-12">Contact Me</h2>
+
+      <p class="col-xs-12">I'm available for freelance - from events like weddings to documenting your next adventure, let's chat!</p>
+
+      <div class="col-xs-5"></div>
+
+      <a href="#" class="col-xs-2 btn btn-success">Contact</a>
+
+    </div>
+
+  </div>
+
+
+
+  <div id="social" class="container-fluid">
+
+    <div class="row">
+
+      <div class="col-xs-4">
+
+        <a href="http://www.facebook.com"><img src="https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-7/img-facebook.png"></a>
+
+      </div>
+
+      <div class="col-xs-4">
+
+        <a href="http://www.instagram.com"><img src="
+
+https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-7/img-instagram.png"></a>
+
+      </div>
+
+      <div class="col-xs-4">
+
+        <a href="http://www.medium.com"><img src="https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-7/img-medium.png"></a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+</body>
+
+
+
+</html>
+
+
+
+====================
+
+MAIN.css
+==========
+/* Universal Styles */
+
+body {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+/* Bootstrap Overrides */
+
+.jumbotron {
+  background-image: url("https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-7/img-clear-morning.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  margin-top: 50px;
+}
+
+.navbar {
+ margin-bottom: 0;
+}
+
+#showcase {
+  margin-top: 50px;
+}
+
+/* About Section - Grid System */
+
+.left-col {
+  font-size: 52px;
+}
+
+.right-col {
+  font-size: 24px;
+}
+
+/* Contact - Grid System */
+
+#contact p {
+  font-size: 24px;
+}
+
+===============

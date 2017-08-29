@@ -1,0 +1,34 @@
+JPEG - a highly compressible file type that is preferred for images with significant detail
+PNG - a file type that is lossless (meaning that full quality is maintained) - generally preferred for images with less detail such as logos
+SVG - useful for high resolution screens, scalable vector graphics (SVG) will change size (scale) for various screen sizes; SVGs also contain roughly 50% less data than their JPEG or PNG equivalents allowing web pages to load more quickly; they are becoming widely used for simple images such as icons and logos
+
+
+Making favicons using favicon-generator.org
+
+A favicon is frequently the same as, or a modified version of, whatever logo is associated with a company's web page.
+
+To convert an existing image to a favicon, you can use an online conversion tool such as Favicon-Generator.
+
+http://www.favicon-generator.org/
+
+
+Editing Images
+
+Another important skill is creating and managing assets. Assets are images and other media that will be presented on your web page.
+
+Sometimes your images will be imperfect for any number of reasons: they might contain content you wish to crop out, the file size may be unnecessarily large, or the image itself might be too big.
+
+A best practice is to ensure that images are sized properly before adding them to an HTML file. Images that are too large may overflow their parent container or render incorrectly. Furthermore, overly large files cause web pages to load significantly slower.
+
+There are several tools we can use to modify assets. Adobe Photoshop is a commonly used and useful tool for all sorts of photo editing tasks. Unfortunately, Photoshop requires a monthly subscription fee. Because of the cost, in this article we will use Pixlr, a free and industry-accepted alternative.
+
+Edit and Crop an Image with Pixlr
+https://pixlr.com/editor/
+
+
+
+SVG: Converting to Scalable Vector Format
+
+Scalable Vector Graphics, or SVGs, are generally the smallest file size as they are created by specifying a series of line lengths, with turns and colors. However, this means that they cannot render highly detailed images well. If you have an image that is relatively simple and you want it to scale well on screens with high resolutions, you may wish to convert it to SVG format. To convert an image to SVG, you can use an online conversion tool such as online-convert.
+online-convert.com
+http://image.online-convert.com/convert-to-svg

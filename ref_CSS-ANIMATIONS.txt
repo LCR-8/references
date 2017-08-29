@@ -1,0 +1,133 @@
+CSS-ANIMATIONS
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions
+
+transition: The properties must be specified in this order:
+  transition-property
+  transition-duration
+  transition-timing-function
+  transition-delay
+
+p.ex.:
+  transition: color 1.5s linear 0.5
+
+
+  CSS Transitions have 4 components:
+
+  A property that will transition.
+  The duration which describes how long the transition takes.
+  The delay to pause before the transition will take place.
+  The timing function that describes the transition's acceleration.
+
+
+
+BOUTTON COOL
+=============
+style.css
+==========
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+
+/* Main Styles */
+body {
+  min-width: 300px;
+  background-color: #ecf0f1;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+.button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+  width: 300px;
+  height: 100px;
+  line-height: 100px;
+  background-color: #34B3A0;
+  color: #fff;
+}
+
+.button span,
+.button .icon {
+  position: absolute;
+  display: block;
+  height: 100%;
+  text-align: center;
+}
+
+.button span {
+  width: 72%;
+  left: 0px;
+  line-height: inherit;
+  font-size: 22px;
+}
+
+.button .icon {
+  right: 0;
+  width: 28%;
+}
+
+.button .icon .fa {
+  font-size: 30px;
+  vertical-align: middle;
+}
+
+.icon {
+  width: 200px;
+  background-color: #1A7B72;
+}
+
+.button:hover span {
+  left: -72%;
+}
+
+.button:hover .icon {
+  width: 100%;
+}
+
+.button:hover .icon .fa {
+  font-size: 45px;
+}
+
+.button span,
+.button div,
+.button i {
+	transition: width 750ms ease-in 200ms
+    ,left 500ms ease-out 450ms
+    ,font-size 950ms linear;
+/*autre option
+  	transition: all 1.2s ease-out 0.2s;
+*/
+
+}
+
+
+index.html
+===========
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Animation All</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="fancy button" href="#" role="button">
+    <span>DOWNLOAD</span>
+    <div class="icon">
+      <i class="fa fa-arrow-down"></i>
+    </div>
+  </a>
+</body>
+</html>

@@ -1,0 +1,252 @@
+JAVASCRIPT
+=============
+
+// This is a comment
+console.log('Louis-Carl'); // This is also a comment
+
+// Create the age variable on line 2:
+var age = 38;
+
+// Calculate the value of yearBorn on line 5:
+var yearBorn = 2017 - age;
+
+// Create the lessThan variable on line 8:
+var lessThan = true;
+
+// Below are the variables:
+var city = 'Los Angeles, ';
+var state = 'California';
+
+// Concatenate the city and state variables on the line below. Set them equal to cityState.
+var cityState = city + state;
+console.log(cityState);
+
+// Use the length() method and console.log() to log the length of the cityState string to the console.
+console.log(cityState.length);
+
+// FUNCTION: we created a function that logs 'Welcome to JavaScript' to the console
+function welcomeMessage() {
+  console.log('Welcome to JavaScript');
+}
+
+// FUNCTION CALL: when we call the welcomeMessage function, it logs 'Welcome to JavaScript'
+welcomeMessage();
+
+
+// Create a function that logs 'My first function!' to the console when it is called.
+function myFunction(){
+  console.log('My first function!');
+}
+myFunction();
+// Take in three numbers and output the sum
+function sumThree(num1, num2, num3) {
+  return (num1 + num2 + num3);
+}
+var testSumThree = sumThree(3, 4, 5);
+
+// Take in cost of a product and a decimal. Output the product (multiplication) of these two variables.
+function percentCost(cost, percent) {
+  return(cost * percent);
+}
+var tip = percentCost(30, .2);
+
+
+// Store string values to str1 and str2 varibales:
+var str1 = 'uPPERCASE';
+var str2 = 'Lowercase';
+
+// Use a string method to log str1 and str2 to the console with all lowercase letters
+console.log(str1.toLowerCase());
+console.log(str2.toLowerCase());
+
+// Use a string method to log str1 and str2 to the console with all uppercase letters
+console.log(str1.toUpperCase());
+console.log(str2.toUpperCase());
+
+// Use the startsWith method to see if str1 and str2 start with an 'L'. Log the result to the console.
+var str1Start = str1.startsWith('L');
+var str2Start = str2.startsWith('L');
+
+
+
+
+IF / ELSE / ELSE IF
+==============
+var inNortherHemisphere = true;
+var latitude = 40.7;
+if (latitude > 30 && inNorthernHemisphere) {
+  console.log("It's cold in December!");
+} else {
+  console.log("It's not cold in December!");
+}
+
+// Create hasEnoughMoney function below
+function hasEnoughMoney(account, cost, taxRate){
+  var totalCost = cost + (taxRate * cost);
+
+  if (account >= totalCost) {
+    console.log("Item can be purchased!")
+    return true;
+  } else {
+    console.log("Cannot buy item!")
+    return false;
+  }
+}
+
+hasEnoughMoney(100, 95, .05);
+
+// Create stopLight function below
+function stopLight(lightColor) {
+  if (lightColor === 'red') {
+    return 'Stop';
+  } else if (lightColor === 'yellow') {
+    return 'Slow Down';
+  } else if (lightColor === 'green') {
+    return 'Go';
+  } else {
+    return 'Error';
+  }
+}
+
+console.log(stopLight('green'));
+
+ARRAYS  (https://www.codecademy.com/articles/js-fwd-arrays)
+-----=============
+// Make an array called bucketList below.
+var bucketList = ['sex', 'music', 'family'];
+// Save the middle item of the bucketList variable to a variable named middleItem.
+var middleItem = bucketList[1];
+
+console.log(middleItem);
+
+
+// Create an array with your first name in the first position, last name in the second position, and age in the third position.
+var aboutMe = ['Louis-Carl', 'Roberts', 38];
+
+
+
+// Create an array named menu below
+var menu = [['Samosa',5,200],['Naan',4,325],['Chicken Tikka Masala',17,650]];
+
+
+// Access the m in the string stored in the variable str
+var str = 'chana masala';
+console.log(str[6]);
+
+
+==================
+// Create the rankings array below
+var rankings = ['Team A', 'Team B', 'Team C'];
+
+// Add teams to the end of the rankings array
+rankings.push('Team D');
+rankings.push('Team E');
+console.log(rankings);
+// Reverse
+rankings.reverse();
+console.log(rankings);
+// Two string method
+var str = 'Codecademy';
+
+console.log(str.substring(0,4));
+console.log(str[9]);
+
+LENGTH et LOOPS (https://www.codecademy.com/articles/fwd-js-loops)
+===========
+// Create a variable that stores a list of animals
+var animals = ['Grizzly Bear', 'Sloth', 'Sea Lion'];
+var animalIndex = animals.length;
+// Loop through the list of animals and log each to the console
+for (var i =0; i < animalIndex; i++){
+  console.log(animals[i]);
+}
+
+// set the word to Codecademy
+var word = 'Codecademy';
+
+// log each letter of Codecademy to the console, one after another.
+for (var i = 0; i < word.length; i++){
+  console.log(word[i]);
+}
+
+
+NESTED LOOPS
+===================
+// Write a nested for loop to iterate through and print each element of the array to the console.
+var grid = [['0, 0', '0, 1', '0, 2'],
+            ['1, 0', '1, 1', '1, 2'],
+            ['2, 0', '2, 1', '2, 2']];
+
+for (var i = 0; i < 3; i++){
+  var arraySize = grid[i].length;
+
+  for (var count = 0; count < arraySize; count++){
+    console.log(grid[i][count]);
+  }
+}
+
+
+OBJECTS
+====================
+// Keep score of a game
+var scoreboard = {
+  teamA: 'Code',
+  teamB: 'Cademy',
+  scoreA: 0,
+  scoreB: 0,
+  incrementScoreA: function () {
+    scoreboard.scoreA++;
+  },
+  incrementScoreB: function(){
+    scoreboard.scoreB++;
+  }
+};
+
+// Access the name of teamA with dot notation
+console.log(scoreboard.teamA);
+
+// Access the name of teamB with bracket notation
+console.log(scoreboard['teamB']);
+
+// Overwrite the teamB value with JavaScript
+scoreboard.teamB = 'JavaScript';
+
+// Log the name of teamB
+console.log(scoreboard.teamB);
+
+// Call the incrementScoreA function
+console.log('Team A has: ' + scoreboard.scoreA);
+scoreboard.incrementScoreA();
+console.log('Team A has: ' + scoreboard.scoreA);
+
+--====================
+// Create a movie store object
+var movieStore = {
+  name: 'Codecademy Movies',
+  genres: ['Comedy', 'Romance', 'Horror', 'Drama'],
+  movieInventoryCount: 455,
+  logMovieCount: function() {
+    console.log('There are currently ' + movieInventoryCount + ' different movies in our store.');
+  }
+}
+
+movieStore['movieInventoryCount'] = 556;
+movieStore.genres.push('Action');
+
+--===================
+// Create an object that stores the position of an object on a grid, and four commands for moving it.
+var gridMotion = {
+  position: [0, 0],
+  moveHorizontal: function(stepX){
+    gridMotion.position[0] = gridMotion.position[0] + stepX;
+  },
+  moveVertical: function(stepY){
+    gridMotion.position[1] = gridMotion.position[1] + stepY;
+  }
+}
+
+gridMotion.moveVertical(10);
+console.log(gridMotion.position);
+
+gridMotion.moveHorizontal(10);
+console.log(gridMotion.position);

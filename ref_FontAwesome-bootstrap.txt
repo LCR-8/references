@@ -1,0 +1,17 @@
+https://www.bootstrapcdn.com/fontawesome/
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+
+http://fontawesome.io/get-started/
+http://fontawesome.io/cheatsheet/
+
+<div class="social">
+   <span>Share your results with friends</span>
+   <i class="fa fa-facebook"></i>
+   <i class="fa fa-twitter"></i>
+   <i class="fa fa-pinterest"></i>
+ </div>
+
+The Font Awesome library can be linked to an HTML document from a remote CDN or a local CSS file.
+Font Awesome icons are added to a website by setting an <i> tag's classes to fa and fa-icon-name, where fa-icon-name refers to the icon-specific class name.
+Font Awesome icons can be resized using fa-lg, fa-2x, fa-3x, fa-4x, or fa-5x.
